@@ -1,71 +1,77 @@
+// /app/page.js
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from './page.module.css';
+
 export default function Home() {
   return (
-    <main className="home">
-      {/* NAVBAR */}
-      <header className="navbar">
-        <div className="nav-left">
-          <img src="./img/logoSansCar.png" alt="Logo" className="logo" />
-          <div className="brand">
-            <h2>Locadora</h2>
-            <span>SansCar</span>
-          </div>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          {/* O logoSansCar.png está em /public/img/ */}
+          <Image src="/img/logoSansCar.png" alt="Locadora SansCar" width={40} height={40} />
+          <span>Locadora SansCar</span>
         </div>
-
-        <nav className="nav-menu">
-          <a href="#">Início</a>
-          <a href="#">Aluguel</a>
-          <a href="#">Venda</a>
-          <a href="#">Contato</a>
+        
+        {/* === NAVEGAÇÃO ATUALIZADA AQUI === */}
+        <nav className={styles.nav}>
+          <Link href="/">Início</Link>
+          <Link href="/aluguel">Aluguel</Link>
+          <Link href="/venda">Venda</Link>
+          <Link href="/contato">Contato</Link>
+          <Link href="/login" className={styles.navLinkButton}>Login</Link>
+          <Link href="/cadastro" className={styles.navLinkButton}>Cadastro</Link>
         </nav>
+        {/* ================================== */}
+        
       </header>
 
-      {/* HERO */}
-      <section className="hero">
-        <img src="./img/carro_bg.jpg" alt="Carro fundo" className="hero-bg" />
-
-        <div className="hero-content">
-          <h1>Seu carro ideal está aqui</h1>
-          <p>Aluguel e venda de veículos premium.</p>
-
-          <div className="search-area">
-            <input type="text" placeholder="Buscar veículo" />
-            <button>Alugar agora</button>
+      <main className={styles.mainContent}>
+        <h1>Seu carro ideal está aqui</h1>
+        <p>Aluguel e venda de veículos premium.</p>
+        
+        <div className={styles.searchSection}>
+          <div className={styles.searchBar}>Buscar veículo</div>
+          <Link href="/aluguel" className={styles.rentButton}>Alugar agora</Link>
+        </div>
+        
+        <div className={styles.categoryGrid}>
+          {/* ... (Restante do Category Grid permanece o mesmo) ... */}
+           <div className={styles.categoryBox}>
+            <Image src="/img/economico.jpg" alt="Carros Econômicos" fill style={{ objectFit: 'cover' }} />
+            <div className={styles.overlay}>
+              <h2>Carros Econômicos</h2>
+              <button>Ver mais</button>
+            </div>
+          </div>
+          
+          <div className={styles.categoryBox}>
+            <Image src="/img/luxo.jpg" alt="Carros de Luxo" fill style={{ objectFit: 'cover' }} />
+            <div className={styles.overlay}>
+              <h2>Carros de Luxo</h2>
+              <button>Ver mais</button>
+            </div>
+          </div>
+          
+          <div className={styles.categoryBox}>
+            <Image src="/img/utilitario.jpg" alt="SUVs e Utilitários" fill style={{ objectFit: 'cover' }} />
+            <div className={styles.overlay}>
+              <h2>SUVs e Utilitários</h2>
+              <button>Ver mais</button>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* CARDS */}
-      <section className="cards">
-        <div className="card">
-          <img src="./img/economico.jpg" alt="Carro Econômico" />
-          <h3>Carros Econômicos</h3>
-          <button>Ver mais</button>
-        </div>
+      </main>
 
-        <div className="card">
-          <img src="./img/luxo.jpg" alt="Carro de Luxo" />
-          <h3>Carros de Luxo</h3>
-          <button>Ver mais</button>
-        </div>
-
-        <div className="card">
-          <img src="./img/utilitario.jpg" alt="SUV" />
-          <h3>SUVs e Utilitários</h3>
-          <button>Ver mais</button>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="footer">
+      <footer className={styles.footer}>
         <span>© 2025 SansCar</span>
-
-        <div className="icons">
-          <i className="fa-brands fa-whatsapp"></i>
-          <i className="fa-brands fa-instagram"></i>
+        <div className={styles.social}>
+          <span>Instagram</span>
+          <span>WhatsApp</span>
         </div>
-
         <span>Endereço</span>
       </footer>
-    </main>
+    </div>
   );
 }

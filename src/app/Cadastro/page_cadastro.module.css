@@ -1,0 +1,101 @@
+
+.cadastroContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000;
+    background-image: url('/img/carro_bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.cadastroBox {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 650px; 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+}
+
+.logoHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.logoHeader span:first-child {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.formRow {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.inputGroup {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+}
+
+.inputGroup span {
+    margin-right: 15px;
+    color: #bbb;
+}
+
+.inputField {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 0;
+    font-size: 1rem;
+    outline: none;
+}
+
+.inputField::placeholder {
+    color: #888;
+}
+
+.registerButton {
+    width: 100%;
+    background: black; 
+    color: white;
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registerButton:hover {
+    background-color: #333;
+}
+
+.backToLogin {
+    display: block;
+    margin-top: 25px;
+    color: #bbb;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.backToLogin:hover {
+    color: white;
+}

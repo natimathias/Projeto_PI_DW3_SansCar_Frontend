@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  overflow: hidden; /* impede rolagem */
+  overflow: hidden; 
 }
 
 body {
@@ -17,13 +17,12 @@ body {
 
 .home {
   width: 100%;
-  height: 100vh; /* ocupa toda a tela */
+  height: 100vh; 
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-/* NAVBAR */
 .navbar {
   width: 100%;
   padding: 20px 50px;
@@ -72,10 +71,9 @@ body {
   opacity: 1;
 }
 
-/* HERO — fundo ocupa toda a tela */
 .hero {
   width: 100%;
-  height: calc(100vh - 90px); /* subtrai altura da navbar */
+  height: calc(100vh - 90px);
   position: relative;
   overflow: hidden;
 }
@@ -87,7 +85,6 @@ body {
   filter: brightness(0.35);
 }
 
-/* TEXTO sobre o fundo */
 .hero-content {
   position: absolute;
   top: 10%;
@@ -134,10 +131,9 @@ body {
   background: #1d4ed8;
 }
 
-/* CARDS — sobrepõem a imagem de fundo */
 .cards {
   position: absolute;
-  bottom: 30px; /* fica acima do rodapé */
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -183,7 +179,6 @@ body {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* FOOTER — bem leve no rodapé */
 .footer {
   position: absolute;
   bottom: 10px;
