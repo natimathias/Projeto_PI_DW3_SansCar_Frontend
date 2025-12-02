@@ -1,0 +1,206 @@
+.container {
+    background-color: #000;
+    color: white;
+    min-height: 100vh;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 30px;
+}
+
+.headerSection {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px;
+}
+
+.pageTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0 !important; 
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007bff; 
+    display: inline-block;
+    color: #f0f0f0;
+}
+
+.backButton {
+    background-color: #333; 
+    color: white;
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.backButton:hover {
+    background-color: #444;
+    border-color: #007bff; 
+}
+
+.tabMenu {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #333; 
+    padding-bottom: 5px;
+}
+
+.tabButton {
+    background: none;
+    color: #ccc;
+    border: none;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 3px solid transparent; 
+    transition: all 0.3s;
+}
+
+.tabButton:hover {
+    color: white;
+    border-bottom-color: #555;
+}
+
+.activeTab {
+    color: #007bff;
+    font-weight: bold;
+    border-bottom-color: #007bff;
+}
+
+.carListContainer {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.categoryHeader {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #00bfff; 
+    border-left: 5px solid #00bfff;
+    padding-left: 15px;
+}
+
+.categoryList { 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.carCard {
+    display: flex;
+    align-items: center; 
+    background-color: #121212;
+    border-radius: 12px;
+    padding: 20px 30px; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+    border: 1px solid #1e1e1e;
+    transition: all 0.3s ease;
+}
+
+.carCard:hover {
+    background-color: #1c1c1c;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.9);
+}
+
+.carImageContainer {
+    width: 180px; 
+    height: 120px;
+    position: relative;
+    margin-right: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #333;
+    flex-shrink: 0; 
+}
+
+.carDetails {
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: left;
+    margin-right: 20px; 
+}
+
+.carName {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.carPrice {
+    font-size: 1.8rem; 
+    color: #4CAF50; 
+    font-weight: 700;
+    margin-bottom: 15px; 
+}
+
+.technicalInline {
+    display: flex;
+    gap: 30px; 
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.technicalInline p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.technicalInline span {
+    margin-right: 5px;
+    font-size: 1.1rem;
+    color: #00bfff;
+}
+
+.actionSection {
+    width: 160px; 
+    flex-shrink: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    justify-content: space-between; 
+    height: 120px; 
+}
+
+.warranty { 
+    font-size: 0.9rem;
+    color: #4CAF50; 
+    margin: 0; 
+    font-weight: 500;
+    white-space: normal; 
+    text-align: right; 
+}
+
+.viewDetailsButton {
+    background: linear-gradient(to right, #4CAF50, #66BB6A); 
+    color: white;
+    padding: 10px 15px; 
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    align-self: flex-end; 
+}
+
+.viewDetailsButton:hover {
+    background: linear-gradient(to right, #388E3C, #4CAF50);
+}
