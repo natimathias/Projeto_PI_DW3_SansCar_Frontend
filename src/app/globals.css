@@ -195,3 +195,19 @@ body {
   gap: 15px;
   font-size: 20px;
 }
+
+.social {
+    display: flex;
+    gap: 25px;
+}
+
+.social span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.social span .fa-brands {
+    font-size: 20px;
+}

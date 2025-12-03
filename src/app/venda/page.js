@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './page_venda.module.css';
+
 const categories = ['Carros', 'Vans', 'Caminhões'];
 
 const vehicleList = Array.from({ length: 50 }, (_, i) => {
@@ -82,7 +83,6 @@ const renderCategoryList = (list) => (
 
                 <div className={styles.actionSection}>
                     <p className={styles.warranty}>1 Ano de Garantia</p>
-                    <button className={styles.viewDetailsButton}>Ver Detalhes</button>
                 </div>
             </div>
         ))}

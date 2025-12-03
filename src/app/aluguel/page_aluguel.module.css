@@ -5,6 +5,31 @@
     padding: 40px 0;
     display: flex;
     justify-content: center;
+    max-height: 70vh;
+    overflow: auto;
+    scroll-behavior: smooth;
+    padding-right: 50px;
+    box-sizing: content-box;
+    padding-bottom: 40px;
+}
+
+.container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #00bfff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #00bfff;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #33eaff;
 }
 
 .mainContent {
@@ -15,15 +40,15 @@
 
 .headerSection {
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 .pageTitle {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 0 !important; 
+    margin-bottom: 0 !important;
     padding-bottom: 10px;
     border-bottom: 2px solid #007bff;
     display: inline-block;
@@ -31,7 +56,7 @@
 }
 
 .backButton {
-    background-color: #333; 
+    background-color: #333;
     color: white;
     padding: 10px 15px;
     border: 1px solid #555;
@@ -44,14 +69,14 @@
 
 .backButton:hover {
     background-color: #444;
-    border-color: #007bff; 
+    border-color: #007bff;
 }
 
 .tabMenu {
     display: flex;
     gap: 15px;
     margin-bottom: 30px;
-    border-bottom: 1px solid #333; 
+    border-bottom: 1px solid #333;
     padding-bottom: 5px;
 }
 
@@ -63,7 +88,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     cursor: pointer;
-    border-bottom: 3px solid transparent; 
+    border-bottom: 3px solid transparent;
     transition: all 0.3s;
 }
 
@@ -80,7 +105,36 @@
 
 .carListContainer {
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 25px;
+    box-sizing: content-box;
+    scroll-behavior: smooth;
+}
+
+.carListContainer::-webkit-scrollbar {
+    width: 10px;
+}
+
+.carListContainer::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 10px;
+}
+
+.carListContainer::-webkit-scrollbar-thumb {
+    background-color: #00bfff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px #00bfff;
+}
+
+.carListContainer::-webkit-scrollbar-thumb:hover {
+    background-color: #33eaff;
+}
+
+.carListContainer {
+    scrollbar-width: thin;
+    scrollbar-color: #00bfff #1e1e1e;
 }
 
 .categoryHeader {
@@ -88,12 +142,13 @@
     font-weight: 600;
     margin-top: 20px;
     margin-bottom: 20px;
-    color: #00bfff; 
+    color: #00bfff;
     border-left: 5px solid #00bfff;
     padding-left: 15px;
 }
 
-.categoryList { 
+.categoryList {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -101,7 +156,7 @@
 
 .carCard {
     display: flex;
-    align-items: center; 
+    align-items: center;
     background-color: #121212;
     border-radius: 12px;
     padding: 20px;
@@ -117,22 +172,22 @@
 }
 
 .carImageContainer {
-    idth: 180px; 
+    width: 180px;
     height: 120px;
     position: relative;
     margin-right: 30px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #333;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .carDetails {
-    flex-grow: 1; 
+    flex-grow: 1;
     text-align: left;
-    align-self: flex-start; 
-    padding-top: 5px; 
-    margin-right: 20px; 
+    align-self: flex-start;
+    padding-top: 5px;
+    margin-right: 20px;
 }
 
 .carName {
@@ -169,20 +224,20 @@
 }
 
 .actionSection {
-    width: 140px; 
-    flex-shrink: 0; 
+    width: 140px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-end; 
-    justify-content: space-between; 
-    height: 120px; 
-    padding-top: 5px; 
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 120px;
+    padding-top: 5px;
 }
 
 .cancellation {
     font-size: 0.9rem;
-    color: #4CAF50; 
-    margin: 0; 
+    color: #4CAF50;
+    margin: 0;
 }
 
 .rentNowButton {
@@ -194,8 +249,8 @@
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
-    align-self: flex-end; 
+    transition: 0.3s;
+    align-self: flex-end;
 }
 
 .rentNowButton:hover {

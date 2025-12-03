@@ -31,8 +31,14 @@ export default function Home() {
       <footer className={styles.footer}>
         <span>© 2025 SansCar</span>
         <div className={styles.social}>
-          <span>Instagram</span>
-          <span>WhatsApp</span>
+          <span>
+            <i className="fa-brands fa-instagram"></i>
+            Instagram
+            </span>
+          <span>
+            <i className="fa-brands fa-whatsapp"></i>
+            WhatsApp
+            </span>
         </div>
         <span>Endereço</span>
       </footer>
