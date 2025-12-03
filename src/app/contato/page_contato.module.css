@@ -2,15 +2,16 @@
     background-color: #000;
     color: white;
     min-height: 100vh;
-    padding: 40px 0;
+    padding: 20px 5px;
     display: flex;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .mainContent {
     width: 100%;
     max-width: 900px;
-    padding: 0 30px;
+    padding: 0 30px 50px;
 }
 
 .headerSection {
@@ -50,7 +51,8 @@
 .contactLayout {
     display: flex;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .formContainer {

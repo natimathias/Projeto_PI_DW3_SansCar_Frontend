@@ -36,6 +36,11 @@ export default function Cadastro() {
 
   return (
     <div className={styles.cadastroContainer}>
+      
+      <Link href="/">
+        <button className={styles.backButton}>⬅️ Voltar à Inicial</button>
+      </Link>
+
       <div className={styles.cadastroBox}>
 
         <div className={styles.logoHeader}>
@@ -44,70 +49,48 @@ export default function Cadastro() {
         </div>
 
         <form className={styles.cadastroForm}>
+
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>👤</span>
-              <input 
-                type="text" 
-                placeholder="Nome completo*" 
-                className={styles.inputField} 
-              />
+              <input type="text" placeholder="Nome completo*" className={styles.inputField} />
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>🪪</span>
-              <input 
-                type="text" 
-                placeholder="CPF*" 
-                className={styles.inputField} 
-              />
+              <input type="text" placeholder="CPF*" className={styles.inputField} />
             </div>
 
             <div className={styles.inputGroup}>
               <span>📞</span>
-              <input 
-                type="text" 
-                placeholder="Telefone*" 
-                className={styles.inputField} 
-              />
+              <input type="text" placeholder="Telefone*" className={styles.inputField} />
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>📧</span>
-              <input 
-                type="email" 
-                placeholder="E-mail*" 
-                className={styles.inputField} 
-              />
+              <input type="email" placeholder="E-mail*" className={styles.inputField} />
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>🔒</span>
-              <input 
-                type="password" 
-                placeholder="Senha*" 
-                className={styles.inputField} 
-              />
+              <input type="password" placeholder="Senha*" className={styles.inputField} />
             </div>
 
             <div className={styles.inputGroup}>
               <span>🔒</span>
-              <input 
-                type="password" 
-                placeholder="Confirmar senha*" 
-                className={styles.inputField} 
-              />
+              <input type="password" placeholder="Confirmar senha*" className={styles.inputField} />
             </div>
           </div>
 
-          <div className={styles.formRow}>
-            <div className={styles.inputGroup}>
+          <div className={`${styles.formRow} ${styles.cepRow}`}>
+            
+            <div className={`${styles.inputGroup} ${styles.cepInput}`}>
               <span>📮</span>
               <input
                 type="text"
@@ -120,8 +103,7 @@ export default function Cadastro() {
 
             <button
               type="button"
-              className={styles.registerButton}
-              style={{ width: "150px", marginLeft: "10px" }}
+              className={styles.cepButton}
               onClick={buscarCep}
             >
               Buscar CEP
@@ -131,40 +113,22 @@ export default function Cadastro() {
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>🏠</span>
-              <input
-                type="text"
-                placeholder="Rua"
-                className={styles.inputField}
-                value={rua}
-                readOnly
-              />
+              <input type="text" placeholder="Rua" className={styles.inputField} value={rua} readOnly />
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>🏙️</span>
-              <input
-                type="text"
-                placeholder="Cidade"
-                className={styles.inputField}
-                value={cidade}
-                readOnly
-              />
+              <input type="text" placeholder="Cidade" className={styles.inputField} value={cidade} readOnly />
             </div>
 
             <div className={styles.inputGroup}>
               <span>🗺️</span>
-              <input
-                type="text"
-                placeholder="Estado"
-                className={styles.inputField}
-                value={estado}
-                readOnly
-              />
+              <input type="text" placeholder="Estado" className={styles.inputField} value={estado} readOnly />
             </div>
           </div>
-          
+
           <button type="submit" className={styles.registerButton}>
             Realizar cadastro
           </button>
@@ -174,6 +138,7 @@ export default function Cadastro() {
         <Link href="/login" className={styles.backToLogin}>
           Voltar ao login
         </Link>
+
       </div>
     </div>
   );

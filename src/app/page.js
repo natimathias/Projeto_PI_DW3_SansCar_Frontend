@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.logo}>
-          <Image src="/img/logoSansCar.png" alt="Locadora SansCar" width={40} height={40} />
+          <Image src="/img/logoSansCar.png" alt="Locadora SansCar" width={75} height={65} />
           <span>Locadora SansCar</span>
         </div>
         <nav className={styles.nav}>
@@ -25,8 +25,11 @@ export default function Home() {
         <div className={styles.searchSection}>
           <div className={styles.searchBar}>Buscar veículo</div>
           <Link href="/aluguel" className={styles.rentButton}>Alugar agora</Link>
-          <Link href="/pesquisa" className={styles.searchButton}>Pesquisar</Link>      
+          <Link href="/pesquisa" className={styles.searchButton}>Pesquisar</Link>
         </div>
+        <Link href="/cadastroCarros">
+          <button className={styles.navLinkButton}>Cadastro de Carros</button>
+        </Link>
       </main>
       <footer className={styles.footer}>
         <span>© 2025 SansCar</span>
@@ -34,11 +37,11 @@ export default function Home() {
           <span>
             <i className="fa-brands fa-instagram"></i>
             Instagram
-            </span>
+          </span>
           <span>
             <i className="fa-brands fa-whatsapp"></i>
             WhatsApp
-            </span>
+          </span>
         </div>
         <span>Endereço</span>
       </footer>

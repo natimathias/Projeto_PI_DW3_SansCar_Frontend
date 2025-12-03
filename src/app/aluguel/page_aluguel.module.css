@@ -5,12 +5,11 @@
     padding: 40px 0;
     display: flex;
     justify-content: center;
-    max-height: 70vh;
     overflow: auto;
     scroll-behavior: smooth;
     padding-right: 50px;
-    box-sizing: content-box;
     padding-bottom: 40px;
+    box-sizing: content-box;
 }
 
 .container::-webkit-scrollbar {
@@ -48,10 +47,8 @@
 .pageTitle {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 0 !important;
-    padding-bottom: 10px;
     border-bottom: 2px solid #007bff;
-    display: inline-block;
+    padding-bottom: 10px;
     color: #f0f0f0;
 }
 
@@ -61,8 +58,6 @@
     padding: 10px 15px;
     border: 1px solid #555;
     border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 500;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
 }
@@ -70,37 +65,6 @@
 .backButton:hover {
     background-color: #444;
     border-color: #007bff;
-}
-
-.tabMenu {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-}
-
-.tabButton {
-    background: none;
-    color: #ccc;
-    border: none;
-    padding: 10px 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
-}
-
-.tabButton:hover {
-    color: white;
-    border-bottom-color: #555;
-}
-
-.activeTab {
-    color: #007bff;
-    font-weight: bold;
-    border-bottom-color: #007bff;
 }
 
 .carListContainer {
@@ -132,15 +96,9 @@
     background-color: #33eaff;
 }
 
-.carListContainer {
-    scrollbar-width: thin;
-    scrollbar-color: #00bfff #1e1e1e;
-}
-
 .categoryHeader {
     font-size: 2rem;
     font-weight: 600;
-    margin-top: 20px;
     margin-bottom: 20px;
     color: #00bfff;
     border-left: 5px solid #00bfff;
@@ -148,7 +106,6 @@
 }
 
 .categoryList {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -174,18 +131,20 @@
 .carImageContainer {
     width: 180px;
     height: 120px;
-    position: relative;
-    margin-right: 30px;
     border-radius: 8px;
     overflow: hidden;
     background-color: #333;
     flex-shrink: 0;
+    margin-right: 30px;
+}
+
+.carImage {
+    object-fit: cover;
 }
 
 .carDetails {
     flex-grow: 1;
     text-align: left;
-    align-self: flex-start;
     padding-top: 5px;
     margin-right: 20px;
 }
@@ -200,7 +159,6 @@
 .carPrice {
     font-size: 1.3rem;
     color: #fff;
-    font-weight: 500;
     margin-bottom: 10px;
 }
 
@@ -212,15 +170,15 @@
 }
 
 .technicalInline p {
+    margin: 0;
     display: flex;
     align-items: center;
-    margin: 0;
 }
 
 .technicalInline span {
     margin-right: 5px;
-    font-size: 1.1rem;
     color: #00bfff;
+    font-size: 1.1rem;
 }
 
 .actionSection {
@@ -231,7 +189,6 @@
     align-items: flex-end;
     justify-content: space-between;
     height: 120px;
-    padding-top: 5px;
 }
 
 .cancellation {
@@ -246,11 +203,10 @@
     padding: 10px 25px;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    cursor: pointer;
     transition: 0.3s;
-    align-self: flex-end;
 }
 
 .rentNowButton:hover {
