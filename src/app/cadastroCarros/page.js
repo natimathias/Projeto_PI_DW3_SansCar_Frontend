@@ -71,18 +71,6 @@ export default function CadastroCarro() {
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
-              <span>📌</span>
-              <select className={styles.inputField}>
-                <option value="">Status*</option>
-                <option value="disponivel">Disponível</option>
-                <option value="alugado">Alugado</option>
-                <option value="manutencao">Em manutenção</option>
-              </select>
-            </div>
-          </div>
-
-          <div className={styles.formRow}>
-            <div className={styles.inputGroup}>
               <span>📍</span>
               <input
                 type="number"
