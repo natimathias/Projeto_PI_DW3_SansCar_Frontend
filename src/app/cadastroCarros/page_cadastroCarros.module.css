@@ -138,3 +138,15 @@
 .backToLogin:hover {
   color: white;
 }
+
+
+.inputField option {
+  padding: 10px;
+  background: #fff;
+  color: #333;
+  font-size: 15px;
+}
+
+.inputField option:hover {
+  background: #eaeaea;
+}
