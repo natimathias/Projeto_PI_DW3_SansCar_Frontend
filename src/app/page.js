@@ -28,7 +28,7 @@ export default function Home() {
           <Link href="/pesquisa" className={styles.searchButton}>Pesquisar</Link>
         </div>
         <Link href="/cadastroCarros">
-          <button className={styles.navLinkButton}>Cadastro de Carros</button>
+          <button className={styles.navLinkButton} style={{ cursor: "pointer" }}>Cadastro de Carros</button>
         </Link>
       </main>
       <footer className={styles.footer}>

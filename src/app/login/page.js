@@ -1,7 +1,6 @@
-// /app/login/page.js
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './page_login.module.css';
+
 export default function Login() {
     return (
         <div className={styles.loginContainer}>

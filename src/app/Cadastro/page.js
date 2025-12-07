@@ -2,8 +2,18 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './page_cadastro.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function Cadastro() {
+
+  const router = useRouter();
+
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [confirmarSenha, setConfirmarSenha] = useState("");
 
   const [cep, setCep] = useState("");
   const [rua, setRua] = useState("");
@@ -17,7 +27,7 @@ export default function Cadastro() {
     }
 
     try {
-      const response = await fetch(`http://localhost:80886/api-externa/cep/${cep}`);
+      const response = await fetch(`http://localhost:8086/api-externa/cep/${cep}`);
       const dados = await response.json();
 
       if (dados.erro) {
@@ -34,9 +44,57 @@ export default function Cadastro() {
     }
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!nome || !cpf || !telefone || !email || !senha || !confirmarSenha || !cep) {
+      alert("Por favor, preencha todos os campos obrigatórios!");
+      return;
+    }
+
+    if (senha !== confirmarSenha) {
+      alert("As senhas não conferem!");
+      return;
+    }
+
+    const novoCliente = {
+      nome,
+      cpf,
+      telefone,
+      email,
+      senha,
+      cep,
+      rua,
+      cidade,
+      estado,
+    };
+
+    try {
+      const resposta = await fetch("http://localhost:8086/clientes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(novoCliente)
+      });
+
+      const resultado = await resposta.json();
+
+      if (!resposta.ok) {
+        alert(`Erro ao cadastrar: ${resultado.error}`);
+        return;
+      }
+
+      alert("Cadastro realizado com sucesso!");
+      router.push('/login');
+    } catch (error) {
+      alert("Erro ao conectar com o servidor.");
+    }
+  }
+
   return (
     <div className={styles.cadastroContainer}>
-      
+
       <Link href="/">
         <button className={styles.backButton}>⬅️ Voltar à Inicial</button>
       </Link>
@@ -48,48 +106,48 @@ export default function Cadastro() {
           <span>Locadora SansCar</span>
         </div>
 
-        <form className={styles.cadastroForm}>
+        <form className={styles.cadastroForm} onSubmit={handleSubmit}>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>👤</span>
-              <input type="text" placeholder="Nome completo*" className={styles.inputField} />
+              <input type="text" placeholder="Nome completo*" className={styles.inputField} value={nome} onChange={(e) => setNome(e.target.value)}/>
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>🪪</span>
-              <input type="text" placeholder="CPF*" className={styles.inputField} />
+              <input type="text" placeholder="CPF*" className={styles.inputField} value={cpf} onChange={(e) => setCpf(e.target.value)}/>
             </div>
 
             <div className={styles.inputGroup}>
               <span>📞</span>
-              <input type="text" placeholder="Telefone*" className={styles.inputField} />
+              <input type="text" placeholder="Telefone*" className={styles.inputField} value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>📧</span>
-              <input type="email" placeholder="E-mail*" className={styles.inputField} />
+              <input type="email" placeholder="E-mail*" className={styles.inputField} value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
           </div>
 
           <div className={styles.formRow}>
             <div className={styles.inputGroup}>
               <span>🔒</span>
-              <input type="password" placeholder="Senha*" className={styles.inputField} />
+              <input type="password" placeholder="Senha*" className={styles.inputField} value={senha} onChange={(e) => setSenha(e.target.value)}/>
             </div>
 
             <div className={styles.inputGroup}>
               <span>🔒</span>
-              <input type="password" placeholder="Confirmar senha*" className={styles.inputField} />
+              <input type="password" placeholder="Confirmar senha*" className={styles.inputField} value={confirmarSenha} onChange={(e) => setConfirmarSenha(e.target.value)}/>
             </div>
           </div>
 
           <div className={`${styles.formRow} ${styles.cepRow}`}>
-            
+
             <div className={`${styles.inputGroup} ${styles.cepInput}`}>
               <span>📮</span>
               <input
@@ -134,10 +192,6 @@ export default function Cadastro() {
           </button>
 
         </form>
-
-        <Link href="/login" className={styles.backToLogin}>
-          Voltar ao login
-        </Link>
 
       </div>
     </div>

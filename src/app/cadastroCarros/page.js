@@ -11,7 +11,7 @@ export default function CadastroCarro() {
   const [categoria, setCategoria] = useState([]);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState("");
   const [imagem, setImagem] = useState("");
-  const [quilometragem, setQuilometragem] = useState(0);
+  const [quilometragem, setQuilometragem] = useState("");
 
    useEffect(() => {
     async function carregarCategorias() {
@@ -57,6 +57,15 @@ export default function CadastroCarro() {
       }
 
       alert("Carro cadastrado com sucesso!");
+
+      setModelo("");
+      setPlaca("");
+      setAno("");
+      setCor("");
+      setCategoriaSelecionada("");
+      setImagem("");
+      setQuilometragem("");
+
     } catch (error) {
       console.error(error);
       alert("Erro ao conectar com o servidor.");
@@ -165,7 +174,7 @@ export default function CadastroCarro() {
             </div>
           </div>
 
-          <button type="submit" className={styles.registerButton}>
+          <button type="submit" className={styles.registerButton} style={{ cursor: "pointer" }}>
             Cadastrar Carro
           </button>
         </form>
