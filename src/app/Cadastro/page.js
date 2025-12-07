@@ -57,16 +57,15 @@ export default function Cadastro() {
       return;
     }
 
+    const enderecoCompleto = `${rua}, ${cidade}, ${estado}, ${cep}`;
+
     const novoCliente = {
       nome,
       cpf,
       telefone,
+      endereco: enderecoCompleto,
       email,
-      senha,
-      cep,
-      rua,
-      cidade,
-      estado,
+      senha
     };
 
     try {
