@@ -1,4 +1,4 @@
-.cadastroContainer {
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-.cadastroContainer::before {
+.loginContainer::before {
   content: "";
   position: absolute;
   top: 0;
@@ -22,39 +22,20 @@
   z-index: 1;
 }
 
-.topBackButton {
+.backButton {
   position: absolute;
   top: 20px;
   left: 20px;
-
   background-color: #333;
   color: white;
   padding: 10px 15px;
   border: 1px solid #555;
   border-radius: 6px;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
   z-index: 3;
-}
-
-.topBackButton:hover {
-  background-color: #444;
-  border-color: #007bff;
-}
-
-.backButton {
-  background-color: #333;
-  color: white;
-  padding: 10px 15px;
-  border: 1px solid #555;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-  z-index: 3;
-  gap: 5px;
-  margin-top: 20px;
 }
 
 .backButton:hover {
@@ -62,13 +43,13 @@
   border-color: #007bff;
 }
 
-.cadastroBox {
+.loginBox {
   background: rgba(10, 10, 10, 0.85);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 40px;
-  width: 650px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  width: 400px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   text-align: center;
   color: white;
   position: relative;
@@ -81,93 +62,66 @@
   justify-content: center;
   font-size: 1.8rem;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
-.logoHeader span:first-child {
+.logoIcon {
   font-size: 2rem;
   margin-right: 10px;
 }
 
-.formRow {
-  display: flex;
-  gap: 15px;
-  margin-bottom: 8px;
+.logoText {
+  font-size: 1.8rem;
+}
+
+.subTitle {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: #ccc;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 .inputGroup {
-  flex: 1;
   display: flex;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
+  margin-bottom: 20px;
   padding: 10px 15px;
   border: 1px solid transparent;
+  transition: border-color 0.3s;
 }
 
-.inputGroup span {
-  margin-right: 15px;
-  color: #bbb;
+.inputGroup:focus-within {
+  border-color: #007bff;
 }
 
 .inputField {
   flex-grow: 1;
   background: none;
   border: none;
-  color: white;                 
+  color: white;
   padding: 5px 0;
   font-size: 1rem;
   outline: none;
-  appearance: none;             
-}
-
-.inputField option {
-  background: #222;             
-  color: white;                 
 }
 
 .inputField::placeholder {
   color: #888;
 }
 
-.registerButton {
+.loginButton {
   width: 100%;
-  background: black;
+  background: linear-gradient(to right, #0056b3, #007bff);
   color: white;
   padding: 15px;
-  border: 2px solid white;
+  border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 30px;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.registerButton:hover {
-  background-color: #333;
-}
-
-.backToLogin {
-  display: block;
-  margin-top: 25px;
-  color: #bbb;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.backToLogin:hover {
-  color: white;
-}
-
-
-.inputField option {
-  padding: 10px;
-  background: #fff;
-  color: #333;
-  font-size: 15px;
-}
-
-.inputField option:hover {
-  background: #eaeaea;
+  transition: opacity 0.3s;
 }

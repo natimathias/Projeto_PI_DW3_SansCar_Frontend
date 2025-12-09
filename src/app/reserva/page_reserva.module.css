@@ -1,0 +1,137 @@
+.container {
+    background-color: #000;
+    color: white;
+    min-height: 100vh;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 30px;
+}
+
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.pageTitle {
+    font-size: 2.6rem;
+    border-bottom: 2px solid #00bfff;
+    padding-bottom: 8px;
+}
+
+.backButton {
+    background-color: #222;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    cursor: pointer;
+}
+.backButton:hover {
+    background-color: #333;
+    border-color: #00bfff;
+}
+
+.cardWrapper {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.carCard {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 0 15px #000;
+    border: 1px solid #1c1c1c;
+}
+
+.carImage {
+    border-radius: 10px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.detailsTitle {
+    font-size: 1.8rem;
+    color: #00bfff;
+    margin-bottom: 10px;
+}
+
+.detailsText {
+    margin: 3px 0;
+    color: #ccc;
+}
+
+.price {
+    font-size: 1.4rem;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.formBox {
+    flex-grow: 1;
+    background-color: #111;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #1c1c1c;
+    box-shadow: 0 0 15px #000;
+}
+
+.formTitle {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #00bfff;
+}
+
+.formLabel {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+.inputField {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: #222;
+    color: white;
+}
+
+.totalBox {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    color: #00bfff;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reserveButton {
+    margin-top: 25px;
+    width: 100%;
+    background: linear-gradient(to right, #0056b3, #00aaff);
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reserveButton:hover {
+    background: linear-gradient(to right, #004999, #0088dd);
+}

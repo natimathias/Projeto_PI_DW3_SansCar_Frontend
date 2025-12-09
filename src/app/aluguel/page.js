@@ -11,44 +11,44 @@ export default function Aluguel() {
     const [erro, setErro] = useState(null);
 
     useEffect(() => {
-    async function carregarCarros() {
-        try {
-            const [carrosResp, categoriasResp] = await Promise.all([
-                fetch("http://localhost:8086/carros"),
-                fetch("http://localhost:8086/categorias"),
-            ]);
+        async function carregarCarros() {
+            try {
+                const [carrosResp, categoriasResp] = await Promise.all([
+                    fetch("http://localhost:8086/carros"),
+                    fetch("http://localhost:8086/categorias"),
+                ]);
 
-            if (!carrosResp.ok || !categoriasResp.ok) {
-                throw new Error("Erro ao buscar dados.");
+                if (!carrosResp.ok || !categoriasResp.ok) {
+                    throw new Error("Erro ao buscar dados.");
+                }
+
+                const listaCarros = await carrosResp.json();
+                const categorias = await categoriasResp.json();
+
+                const carrosDisponiveis = listaCarros.filter(carro => carro.status === "disponivel");
+
+                const carrosComCategoria = carrosDisponiveis.map(carro => {
+                    const categoria = categorias.find(
+                        categoria => categoria.id_categoria === carro.id_categoria
+                    );
+
+                    return {
+                        ...carro,
+                        valor_diaria: categoria ? categoria.valor_diaria : "0.00",
+                    };
+                });
+
+                setCarros(carrosComCategoria);
+
+            } catch (error) {
+                setErro(error.message);
+            } finally {
+                setLoading(false);
             }
-
-            const listaCarros = await carrosResp.json();
-            const categorias = await categoriasResp.json();
-
-            const carrosDisponiveis = listaCarros.filter(carro => carro.status === "disponivel");
-
-            const carrosComCategoria = carrosDisponiveis.map(carro => {
-                const categoria = categorias.find(
-                    categoria => categoria.id_categoria === carro.id_categoria
-                );
-
-                return {
-                    ...carro,
-                    valor_diaria: categoria ? categoria.valor_diaria : "0.00",
-                };
-            });
-
-            setCarros(carrosComCategoria);
-
-        } catch (error) {
-            setErro(error.message);
-        } finally {
-            setLoading(false);
         }
-    }
 
-    carregarCarros();
-}, []);
+        carregarCarros();
+    }, []);
 
     if (loading) {
         return <p className={styles.loading}>Carregando carros...</p>;
@@ -99,9 +99,11 @@ export default function Aluguel() {
 
                                 <div className={styles.actionSection}>
                                     <p className={styles.cancellation}>Cancelamento grátis</p>
-                                    <button className={styles.rentNowButton}>
-                                        Reservar
-                                    </button>
+                                    <Link href="/reserva">
+                                        <button className={styles.rentNowButton}>
+                                            Reservar
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}

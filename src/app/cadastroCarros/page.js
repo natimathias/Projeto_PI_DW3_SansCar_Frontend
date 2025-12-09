@@ -13,7 +13,7 @@ export default function CadastroCarro() {
   const [imagem, setImagem] = useState("");
   const [quilometragem, setQuilometragem] = useState("");
 
-   useEffect(() => {
+  useEffect(() => {
     async function carregarCategorias() {
       try {
         const resposta = await fetch("http://localhost:8086/categorias");
@@ -74,6 +74,9 @@ export default function CadastroCarro() {
 
   return (
     <div className={styles.cadastroContainer}>
+      <Link href="/">
+        <button className={styles.topBackButton}>⬅️ Voltar à Inicial</button>
+      </Link>
       <div className={styles.cadastroBox}>
         <div className={styles.logoHeader}>
           <span>🚗</span>
@@ -179,9 +182,11 @@ export default function CadastroCarro() {
           </button>
         </form>
 
-        <Link href="/">
-          <button className={styles.backButton}>⬅️ Voltar à Inicial</button>
-        </Link>
+          <Link href="/loginFuncionario">
+            <button className={styles.backButton} style={{ marginTop: "10px" }}>
+              🔐 Login Funcionário
+            </button>
+          </Link>
       </div>
     </div>
   );

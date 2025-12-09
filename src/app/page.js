@@ -13,12 +13,15 @@ export default function Home() {
         <nav className={styles.nav}>
           <Link href="/">Início</Link>
           <Link href="/aluguel">Aluguel</Link>
-          <Link href="/venda">Venda</Link>
           <Link href="/contato">Contato</Link>
           <Link href="/login" className={styles.navLinkButton}>Login</Link>
           <Link href="/cadastro" className={styles.navLinkButton}>Cadastro</Link>
+          <Link href="/graficos">
+            <button className={styles.navLinkButton}>📊 Estatísticas</button>
+          </Link>
         </nav>
       </header>
+
       <main className={styles.mainContent}>
         <h1>Seu carro ideal está aqui</h1>
         <p>Aluguel e venda de veículos premium.</p>
@@ -31,6 +34,7 @@ export default function Home() {
           <button className={styles.navLinkButton} style={{ cursor: "pointer" }}>Cadastro de Carros</button>
         </Link>
       </main>
+
       <footer className={styles.footer}>
         <span>© 2025 SansCar</span>
         <div className={styles.social}>
