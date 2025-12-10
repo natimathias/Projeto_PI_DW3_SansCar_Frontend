@@ -30,9 +30,18 @@ export default function Home() {
           <Link href="/aluguel" className={styles.rentButton}>Alugar agora</Link>
           <Link href="/pesquisa" className={styles.searchButton}>Pesquisar</Link>
         </div>
-        <Link href="/cadastroCarros">
-          <button className={styles.navLinkButton} style={{ cursor: "pointer" }}>Cadastro de Carros</button>
-        </Link>
+
+        <div className={styles.buttonRow}>
+          <Link href="/cadastroCarros">
+            <button className={styles.navLinkButton} style={{ cursor: "pointer" }}>Cadastro de Carros</button>
+          </Link>
+
+          <Link href="/listagem">
+            <button className={styles.navLinkButton} style={{ cursor: "pointer", marginLeft: "10px" }}>
+              Listagem de Registros
+            </button>
+          </Link>
+        </div>
       </main>
 
       <footer className={styles.footer}>

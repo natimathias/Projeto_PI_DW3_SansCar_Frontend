@@ -1,0 +1,189 @@
+.container {
+    background-color: #000;
+    color: white;
+    min-height: 100vh;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 30px;
+}
+
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.pageTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    color: #f0f0f0;
+}
+
+.backButton {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.backButton:hover {
+    background-color: #444;
+    border-color: #007bff;
+}
+
+.tabMenu {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.tabButton {
+    background: none;
+    color: #ccc;
+    border: none;
+    padding: 10px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.tabButton:hover {
+    color: white;
+}
+
+.activeTab {
+    color: #007bff;
+    border-bottom-color: #007bff;
+}
+
+.listContainer {
+    padding-bottom: 40px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.listContainer::-webkit-scrollbar {
+    width: 10px;
+    background: #0b0b0b;
+    border-radius: 10px;
+}
+
+.listContainer::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #007bff, #00bfff);
+    border-radius: 10px;
+    border: 2px solid #0b0b0b;
+    box-shadow: 0 0 6px #00bfff;
+}
+
+.listContainer::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #009dff, #32e1ff);
+}
+
+.listContainer::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 10px;
+}
+
+.categoryList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    background-color: #121212;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #1e1e1e;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: #1c1c1c;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 25px rgba(0, 0, 0, 0.9);
+}
+
+.imageContainer {
+    width: 160px;
+    height: 110px;
+    margin-right: 25px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #222;
+}
+
+.cardImage {
+    object-fit: cover;
+}
+
+.cardInfo {
+    flex-grow: 1;
+}
+
+.cardTitle {
+    color: #00bfff;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.cardActions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editButton {
+    background-color: #007bff;
+    border: none;
+    padding: 8px 14px;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.editButton:hover {
+    background-color: #0056b3;
+}
+
+.deleteButton {
+    background-color: #d9534f;
+    border: none;
+    padding: 8px 14px;
+    font-weight: bold;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.deleteButton:hover {
+    background-color: #c9302c;
+}
+
+.loading, .error {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.3rem;
+}
