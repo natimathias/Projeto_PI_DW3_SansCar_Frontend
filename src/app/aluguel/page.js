@@ -99,8 +99,8 @@ export default function Aluguel() {
 
                                 <div className={styles.actionSection}>
                                     <p className={styles.cancellation}>Cancelamento grátis</p>
-                                    <Link href="/reserva">
-                                        <button className={styles.rentNowButton}>
+                                    <Link href={`/reserva/${car.id_carro}`}>
+                                        <button className={styles.rentNowButton} type='button'>
                                             Reservar
                                         </button>
                                     </Link>

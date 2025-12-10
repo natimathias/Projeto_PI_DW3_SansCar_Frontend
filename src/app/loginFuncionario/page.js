@@ -1,7 +1,18 @@
+"use client";
+
 import Link from 'next/link';
 import styles from './page_loginFuncionario.module.css';
+import { useRouter } from 'next/navigation';
 
 export default function LoginFuncionario() {
+
+    const router = useRouter();
+
+    function handleLogin(e) {
+        e.preventDefault();
+        router.push("/cadastroCarros");
+    }
+
     return (
         <div className={styles.loginContainer}>
 
@@ -17,7 +28,7 @@ export default function LoginFuncionario() {
                 </div>
                 <p className={styles.subTitle}>Login de funcionário</p>
 
-                <form className={styles.loginForm}>
+                <form className={styles.loginForm} onSubmit={handleLogin}>
                     <div className={styles.inputGroup}>
                         <input
                             type="text"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page_listagem.module.css";
@@ -8,50 +8,69 @@ import styles from "./page_listagem.module.css";
 export default function Listagem() {
     const [activeTab, setActiveTab] = useState("Clientes");
 
-    const clientes = [
-        {
-            id_cliente: "1",
-            nome: "João Silva",
-            email: "joao@gmail.com",
-            telefone: "(41) 99812-3040",
-        },
-        {
-            id_cliente: "2",
-            nome: "Maria Oliveira",
-            email: "maria@gmail.com",
-            telefone: "(41) 99650-8821",
-        },
-        {
-            id_cliente: "3",
-            nome: "Carlos Mendes",
-            email: "carlos@gmail.com",
-            telefone: "(41) 99100-3344",
-        },
-    ];
 
-    const carros = [
-        {
-            id_carro: "1",
-            modelo: "Honda Civic 2022",
-            placa: "ABC-1234",
-            status: "Disponível",
-            imagem_carro: "/img/civic.png",
-        },
-        {
-            id_carro: "2",
-            modelo: "Toyota Corolla 2021",
-            placa: "XYZ-9876",
-            status: "Indisponível",
-            imagem_carro: "/img/corolla.png",
-        },
-        {
-            id_carro: "3",
-            modelo: "Jeep Compass 2023",
-            placa: "QWE-4421",
-            status: "Em manutenção",
-            imagem_carro: "/img/compass.png",
-        },
-    ];
+    const [clientes, setClientes] = useState([]);
+    const [carros, setCarros] = useState([]);
+
+    const fetchClientes = async () => {
+        try {
+            const res = await fetch("http://localhost:8086/clientes", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await res.json();
+            setClientes(data);
+        } catch (error) {
+            console.log("Erro ao carregar clientes:", error);
+        }
+    };
+
+    const fetchCarros = async () => {
+        try {
+            const res = await fetch("http://localhost:8086/carros", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const data = await res.json();
+            setCarros(data);
+        } catch (error) {
+            console.log("Erro ao carregar carros:", error);
+        }
+    };
+
+    const deleteCliente = async (id) => {
+        try {
+            await fetch(`http://localhost:8086/clientes/${id}`, {
+                method: "DELETE"
+            });
+
+            fetchClientes();
+        } catch (error) {
+            console.log("Erro ao excluir cliente:", error);
+        }
+    };
+
+    const deleteCarro = async (id) => {
+        try {
+            await fetch(`http://localhost:8086/carros/${id}`, {
+                method: "DELETE"
+            });
+
+            fetchCarros();
+        } catch (error) {
+            console.log("Erro ao excluir carro:", error);
+        }
+    };
+
+
+    useEffect(() => {
+        fetchClientes();
+        fetchCarros();
+    }, []);
 
     const renderClientes = () => (
         <div className={styles.categoryList}>
@@ -65,7 +84,7 @@ export default function Listagem() {
 
                     <div className={styles.cardActions}>
                         <button className={styles.editButton}>Editar</button>
-                        <button className={styles.deleteButton}>Excluir</button>
+                        <button className={styles.deleteButton} onClick={() => deleteCliente(cliente.id_cliente)}>Excluir</button>
                     </div>
                 </div>
             ))}
@@ -76,8 +95,9 @@ export default function Listagem() {
         <div className={styles.categoryList}>
             {carros.map((carro) => (
                 <div key={carro.id_carro} className={styles.card}>
-                    
+
                     <div className={styles.imageContainer}>
+                        {console.log(carro)}
                         <Image
                             src={carro.imagem_carro}
                             alt={carro.modelo}
@@ -95,7 +115,7 @@ export default function Listagem() {
 
                     <div className={styles.cardActions}>
                         <button className={styles.editButton}>Editar</button>
-                        <button className={styles.deleteButton}>Excluir</button>
+                        <button className={styles.deleteButton} onClick={() => deleteCarro(carro.id_carro)}>Excluir</button>
                     </div>
                 </div>
             ))}
@@ -105,7 +125,7 @@ export default function Listagem() {
     return (
         <div className={styles.container}>
             <main className={styles.mainContent}>
-                
+
                 <div className={styles.headerSection}>
                     <h1 className={styles.pageTitle}>Listagem de Registros</h1>
 
@@ -118,9 +138,8 @@ export default function Listagem() {
                     {["Clientes", "Carros"].map((tab) => (
                         <button
                             key={tab}
-                            className={`${styles.tabButton} ${
-                                activeTab === tab ? styles.activeTab : ""
-                            }`}
+                            className={`${styles.tabButton} ${activeTab === tab ? styles.activeTab : ""
+                                }`}
                             onClick={() => setActiveTab(tab)}
                         >
                             {tab}

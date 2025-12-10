@@ -32,8 +32,8 @@ export default function Home() {
         </div>
 
         <div className={styles.buttonRow}>
-          <Link href="/cadastroCarros">
-            <button className={styles.navLinkButton} style={{ cursor: "pointer" }}>Cadastro de Carros</button>
+          <Link href="/loginFuncionario">
+            <button className={styles.navLinkButton} style={{ cursor: "pointer" }}>Login Funciónario</button>
           </Link>
 
           <Link href="/listagem">

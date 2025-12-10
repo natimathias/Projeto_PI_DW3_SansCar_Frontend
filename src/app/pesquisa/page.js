@@ -29,7 +29,7 @@ export default function Pesquisa() {
                             <label>Data e hora de retorno</label>
                             <div className={styles.inputFieldBox}>
                                 <span>📅</span>
-                                <input type="text" placeholder="Data de retorno" className={styles.inputField} />
+                                <input type="date" placeholder="Data de retorno" className={styles.inputField} />
                             </div>
                         </div>
                     </div>

@@ -182,11 +182,6 @@ export default function CadastroCarro() {
           </button>
         </form>
 
-          <Link href="/loginFuncionario">
-            <button className={styles.backButton} style={{ marginTop: "10px" }}>
-              🔐 Login Funcionário
-            </button>
-          </Link>
       </div>
     </div>
   );

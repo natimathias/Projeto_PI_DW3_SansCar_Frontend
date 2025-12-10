@@ -1,100 +1,93 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
+
 import {
-  LineChart, Line,
-  CartesianGrid, XAxis, YAxis, Tooltip,
   PieChart, Pie, Cell,
-  BarChart, Bar
+  BarChart, Bar,
+  CartesianGrid, XAxis, YAxis, Tooltip
 } from "recharts";
 
 import styles from "./page_graficos.module.css";
 
 export default function PaginaGraficos() {
-    const faturamento = [
-        { mes: "Jan", valor: 12000 },
-        { mes: "Fev", valor: 15000 },
-        { mes: "Mar", valor: 18000 },
-        { mes: "Abr", valor: 22000 },
-        { mes: "Mai", valor: 26000 },
-        { mes: "Jun", valor: 30000 },
-    ];
+  
+  const [carrosMaisAlugados, setCarrosMaisAlugados] = useState([]);
+  const [categoriasMaisAlugadas, setCategoriasMaisAlugadas] = useState([]);
 
-    const categorias = [
-        { name: "Econômico", value: 45 },
-        { name: "SUV", value: 25 },
-        { name: "Luxo", value: 15 },
-        { name: "Pick-up", value: 15 }
-    ];
+  const cores = ["#0088FE", "#FFBB28", "#FF8042", "#00C49F", "#8884d8"];
 
-    const funcionarios = [
-        { nome: "Ana", alugueis: 20 },
-        { nome: "Carlos", alugueis: 14 },
-        { nome: "Pedro", alugueis: 30 },
-        { nome: "Julia", alugueis: 25 }
-    ];
+  useEffect(() => {
 
-    const cores = ["#0088FE", "#FFBB28", "#FF8042", "#00C49F"];
+    async function carregarCarros() {
+      const res = await fetch("http://localhost:8086/relatorios/carros-mais-alugados", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const dados = await res.json();
+      setCarrosMaisAlugados(dados);
+    }
 
-    return (
-        <div className={styles.container}>
+    async function carregarCategorias() {
+      const res = await fetch("http://localhost:8086/relatorios/categorias-mais-alugadas", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const dados = await res.json();
+      setCategoriasMaisAlugadas(dados);
+    }
 
-            <h1 className={styles.titulo}>
-                📊 Dashboard — Relatórios da Locadora SansCar
-            </h1>
+    carregarCarros();
+    carregarCategorias();
 
-            <Link href="/">
-                <button className={styles.botaoVoltar}>
-                    ⬅️ Voltar
-                </button>
-            </Link>
+  }, []);
 
-            <div className={styles.grid}>
+  return (
+    <div className={styles.container}>
 
-                {/* Gráfico de Linha */}
-                <div className={styles.card}>
-                    <h2 className={styles.subtitulo}>Faturamento Mensal</h2>
-                    <LineChart width={400} height={250} data={faturamento}>
-                        <Line type="monotone" dataKey="valor" stroke="#00C49F" strokeWidth={3} />
-                        <CartesianGrid stroke="#333" />
-                        <XAxis dataKey="mes" stroke="#ccc" />
-                        <YAxis stroke="#ccc" />
-                        <Tooltip />
-                    </LineChart>
-                </div>
+      <h1 className={styles.titulo}>📊 Dashboard — Relatórios da Locadora SansCar</h1>
 
-                {/* Gráfico de Pizza */}
-                <div className={styles.card}>
-                    <h2 className={styles.subtitulo}>Categorias Mais Alugadas</h2>
-                    <PieChart width={400} height={250}>
-                        <Pie
-                            data={categorias}
-                            dataKey="value"
-                            nameKey="name"
-                            outerRadius={100}
-                            label
-                        >
-                            {categorias.map((e, i) => (
-                                <Cell key={i} fill={cores[i % cores.length]} />
-                            ))}
-                        </Pie>
-                        <Tooltip />
-                    </PieChart>
-                </div>
+      <Link href="/">
+        <button className={styles.botaoVoltar}>⬅️ Voltar</button>
+      </Link>
 
-                {/* Gráfico de Barras */}
-                <div className={styles.card}>
-                    <h2 className={styles.subtitulo}>Atendimento por Funcionário</h2>
-                    <BarChart width={400} height={250} data={funcionarios}>
-                        <CartesianGrid stroke="#333" />
-                        <XAxis dataKey="nome" stroke="#ccc" />
-                        <YAxis stroke="#ccc" />
-                        <Tooltip />
-                        <Bar dataKey="alugueis" fill="#8884d8" />
-                    </BarChart>
-                </div>
+      <div className={styles.grid}>
 
-            </div>
+        <div className={styles.card}>
+          <h2 className={styles.subtitulo}>Categorias Mais Alugadas</h2>
+          <PieChart width={400} height={250}>
+            <Pie
+              data={categoriasMaisAlugadas}
+              dataKey="total"
+              nameKey="categoria"
+              outerRadius={100}
+              label
+            >
+              {categoriasMaisAlugadas.map((_, i) => (
+                <Cell key={i} fill={cores[i % cores.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
         </div>
-    );
+
+        <div className={styles.card}>
+          <h2 className={styles.subtitulo}>Carros Mais Alugados</h2>
+          <BarChart width={400} height={250} data={carrosMaisAlugados}>
+            <CartesianGrid stroke="#333" />
+            <XAxis dataKey="modelo" stroke="#ccc" />
+            <YAxis stroke="#ccc" />
+            <Tooltip />
+            <Bar dataKey="total" fill="#8884d8" />
+          </BarChart>
+        </div>
+
+      </div>
+    </div>
+  );
 }
